@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+  }
+
+  .margin {
+    margin: 0 10px;
+  }
+
+#cmd {
+  display: flex;
+  margin-top: 10px;
+  float: right;
+}

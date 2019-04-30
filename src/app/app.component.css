@@ -1,0 +1,31 @@
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+.pad, mat-sidenav {
+  padding: 10px;
+}
+
+button {
+  margin: 3px 4px !important;
+}
+
+.mat-elevation-z5 {
+  text-align: center
+}
+
+.navbar .nav-item{
+  display: flex;
+}

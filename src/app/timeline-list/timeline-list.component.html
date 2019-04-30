@@ -1,0 +1,60 @@
+<div id="cmd">
+    <a mat-raised-button routerLink="/timeline/new">Nouveau</a>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  </ng-container>
+
+  <!-- Categorie Column -->
+  <ng-container matColumnDef="categorie">
+    <th mat-header-cell *matHeaderCellDef> Catégorie </th>
+    <td mat-cell *matCellDef="let element"> {{element.categorie}} </td>
+  </ng-container>
+
+  <!-- DateCreation Column -->
+  <ng-container matColumnDef="DateCreation">
+    <th mat-header-cell *matHeaderCellDef> Date de creation </th>
+    <td mat-cell *matCellDef="let element"> {{element.DateCreation}} </td>
+  </ng-container>
+
+  <!-- DateMaJ Column -->
+  <ng-container matColumnDef="DateMaJ">
+    <th mat-header-cell *matHeaderCellDef> Date de mise a jour </th>
+    <td mat-cell *matCellDef="let element"> {{element.DateMaJ}} </td>
+  </ng-container>
+
+  <!-- NbreCarte Column -->
+  <ng-container matColumnDef="NbreCarte">
+    <th mat-header-cell *matHeaderCellDef> Nombre de cartes </th>
+    <td mat-cell *matCellDef="let element"> {{element.cardList.length}} </td>
+  </ng-container>
+
+<!-- Editer -->
+  <ng-container matColumnDef="Edition">
+    <th mat-header-cell *matHeaderCellDef> Edition </th>
+    <td mat-cell *matCellDef="let element"><a routerLink="/timeline/{{element.position}}">Editer</a></td>
+  </ng-container>
+<!-- <a routerLink="/timeline/{{element.position}}">Editer</a>  -->
+<!-- <mat-checkbox class="margin" [(ngModel)]="checked"></mat-checkbox> -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>

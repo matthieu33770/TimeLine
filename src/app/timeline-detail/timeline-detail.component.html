@@ -1,0 +1,62 @@
+<div id="global">
+  <h3>
+      Edition / Création d'un TimeLine
+  </h3>
+  <form>
+    <div>
+        <label for="name">Titre </label>
+        <p><input type="text" placeholder="Entrez un nom" [(ngModel)]="editedTimeLine.name" name="name" required></p>
+    </div>
+    <div>
+        <label for="categorie">Catégorie </label>
+        <p><input type="text" placeholder="Entrez une catégorie" [(ngModel)]="editedTimeLine.categorie" name="categorie" required></p>
+    </div>
+    <div id="gauche">
+        <label for="dateCreation">Date de Création </label>
+        <p><input placeholder="{{this.editedTimeLine.dateCreation | date :'dd/MM/yyyy'}}"></p>
+    </div>
+    <div id="droite">
+        <label for="dateMajour">Date de Mise à jour </label>
+        <p><input placeholder="inputDate" [(ngModel)]="inputDate" #ctrl="ngModel" name="dateMajour"></p>
+    </div>
+    <button type="submit" (click)="onSubmit()">Enregistrer</button>
+  </form>
+</div>
+
+<div id="cards">
+  <div id="gauche">
+    <h3>
+      Cartes du TimeLine
+    </h3>
+  </div>
+  <div id="cmd">
+    <a mat-raised-button routerLink="/timeline/{{editedTimeLine.id}}/card/new">Nouveau</a>
+  </div>
+  <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Titre</th>
+          <th>Image</th>
+          <th>Détail</th>
+          <th>Date</th>
+          <th>Edition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cardList of cardSource">
+          <td>{{ cardList.id }}</td>
+          <td>{{ cardList.title }}</td>
+          <td>{{ cardList.image }}</td>
+          <td>{{ cardList.detail }}</td>
+          <td>{{ cardList.date }}</td>
+          <td><a routerLink="/timeline/{{editedTimeLine.id}}/card/{{cardList.id}}">Editer</a></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <mat-paginator [length]="100"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>

@@ -1,0 +1,25 @@
+<div id="global">
+    <h3>
+        Edition / Création d'une Carte
+    </h3>
+    <form>
+      <div id="gauche">
+          <label for="title">Titre </label>
+          <p><input type="text" placeholder="Entrez un nom" [(ngModel)]="editedCard.title" name="title" required></p>
+      </div>
+      <div id="droite">
+          <label for="date">Date de l'évènement </label>
+          <p><input placeholder="Date de la carte" [(ngModel)]="editedCard.date" name="date" required></p>
+      </div>
+      <div id="gauche">
+          <label for="image">Image concernant l'évènement </label>
+          <p><input type="text" placeholder="Entrez l'url de l'illustration" [(ngModel)]="editedCard.image" name="image"></p>
+      </div>
+      <div id="droite">
+          <label for="detail">Détail </label>
+          <p><input placeholder="Saisir les détails" [(ngModel)]="editedCard.detail" name="detail"></p>
+      </div>
+      
+      <button type="submit" (click)="onSubmit()">Enregistrer</button>
+    </form>
+  </div>

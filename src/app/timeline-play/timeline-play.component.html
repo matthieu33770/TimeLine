@@ -1,0 +1,44 @@
+<h2>
+  Jouer au Timeline !
+</h2>
+
+<div *ngIf="cardToFindList.length > 0">
+  <h3>
+    Carte à deviner :
+  </h3>
+
+  <div class="center">
+    <mat-card class="card">
+      <h2 class="center">{{ cardToFind.title }}</h2>
+      <img mat-card-image src={{cardToFind.image}} alt="Photo">
+
+        <p class="center">
+         {{ cardToFind.detail }}
+        </p>
+    </mat-card>
+  </div>
+  <div id="retour">
+      <input type="number" placeholder="Votre proposition" [(ngModel)]="guessDate" (keyup.enter)="onGuess()" #ctrl="ngModel">        
+      <button mat-fab color="primary" (click)="onGuess()">Submit</button>
+  </div> 
+</div>
+
+<h3>
+  Carte(s) trouvée(s) :
+</h3>
+
+<div *ngFor="let listFound of cardFoundList">
+<mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar id="image"></div>      
+      <mat-card-title>{{ listFound.title }}</mat-card-title>
+      <mat-card-subtitle>{{ listFound.date }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{listFound.image}} alt="Photo">
+    <mat-card-content>
+      <p>
+       {{ listFound.detail }}
+      </p>
+  </mat-card-content>
+</mat-card>
+</div>

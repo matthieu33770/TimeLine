@@ -1,0 +1,11 @@
+#global{
+    width:100%;
+    margin-left: 5%;
+  }
+  #global #gauche {
+      float:left;
+      width:60%;
+  }
+  #global #droite {
+      margin-left:60%  
+  }
